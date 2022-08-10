@@ -9,24 +9,39 @@ import SwiftUI
 
 struct CurrencyListView: View {
     
-    var currencyTypes = CurrencyType.data;
-    
+    @Binding var favorites: [String];
+    @Binding var conversions: [Conversion];
+        
     var body: some View {
         VStack {
-            Section("Currency Types") {
-                List {
-                    ForEach(currencyTypes) { type in
-                        Text(type.description)
-                            .font(.headline);
+            List {
+                ForEach(CurrencyType.data) { type in
+                    NavigationLink(destination: CurrencyDetailView(
+                        currencyType: .constant(type),
+                        favorites: $favorites))
+                    {
+                        HStack {
+                            Text(type.description)
+                                .font(.headline);
+//                            Button(action: {}) {
+//                                Image(systemName: "heart.empty")
+//                            }
+                        }
+
                     }
+                    
                 }
             }
         }
+        .navigationTitle("Currency Types")
     }
 }
 
 struct CurrencyListView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrencyListView()
+        CurrencyListView(
+            favorites: .constant(["USD"]),
+            conversions: .constant([])
+        )
     }
 }

@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+
+class ConversionStore : ObservableObject {
+    @Published var conversions: [Conversion] = [];
+    
+    
+}

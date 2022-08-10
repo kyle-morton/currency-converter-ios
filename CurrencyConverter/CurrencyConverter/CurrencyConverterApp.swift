@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct CurrencyConverterApp: App {
+    @StateObject private var favoritesStore = FavoritesStore();
+    @StateObject private var conversionStore = ConversionStore();
+    
     var body: some Scene {
         WindowGroup {
-            CurrencyListView()
+            NavigationView {
+                CurrencyListView(
+                    favorites: $favoritesStore.favorites,
+                    conversions: $conversionStore.conversions
+                );
+            }
         }
     }
 }
