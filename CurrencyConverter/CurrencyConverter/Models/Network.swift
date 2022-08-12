@@ -27,4 +27,8 @@ class Network {
         
         return decodedRates;
     }
+    
+    func getConversionRate(originCurrencyCode: String, destinationCurrencyCode: String) async throws -> ConversionResponse {
+        
+    }
 }
