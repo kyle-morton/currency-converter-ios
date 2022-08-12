@@ -18,7 +18,9 @@ struct CurrencyListView: View {
                 ForEach(CurrencyType.data) { type in
                     NavigationLink(destination: CurrencyDetailView(
                         currencyType: .constant(type),
-                        favorites: $favorites))
+                        favorites: $favorites,
+                        valueInUSD: 0
+                    ))
                     {
                         HStack {
                             Text(type.description)
