@@ -11,6 +11,18 @@ struct CurrencyListView: View {
     
     @Binding var favorites: [String];
     @Binding var conversions: [Conversion];
+    
+    func isFavorite(id: String) -> Bool {
+        return favorites.contains(id);
+    }
+    
+    func toggleFavorite(id: String) {
+        if (isFavorite(id: id)) {
+            favorites = favorites.filter { $0 != id};
+        } else {
+            favorites.append(id);
+        }
+    }
         
     var body: some View {
         VStack {
@@ -19,15 +31,15 @@ struct CurrencyListView: View {
                     NavigationLink(destination: CurrencyDetailView(
                         currencyType: .constant(type),
                         favorites: $favorites,
-                        valueInUSD: 0
+                        usdConversionRate: 0
                     ))
                     {
                         HStack {
+                            Image(systemName: self.isFavorite(id: type.id) ? "heart.fill" : "heart")
+                                .onTapGesture { self.toggleFavorite(id: type.id) }
                             Text(type.description)
-                                .font(.headline);
-//                            Button(action: {}) {
-//                                Image(systemName: "heart.empty")
-//                            }
+//                                .font(.headline);
+
                         }
 
                     }
@@ -42,7 +54,7 @@ struct CurrencyListView: View {
 struct CurrencyListView_Previews: PreviewProvider {
     static var previews: some View {
         CurrencyListView(
-            favorites: .constant(["USD"]),
+            favorites: .constant(["AED"]),
             conversions: .constant([])
         )
     }

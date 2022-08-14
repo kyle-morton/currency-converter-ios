@@ -10,17 +10,17 @@ import SwiftUI
 struct CurrencyDetailView: View {
     @Binding var currencyType: CurrencyType;
     @Binding var favorites: [String];
-    @State var valueInUSD: Decimal;
+    @State var usdConversionRate: Decimal;
     
     var body: some View {
         List {
-            Section(header: Text("Current Value (USD)")) {
+            Section(header: Text("Conversion Rate (USD)")) {
                 HStack {
                     Label("", systemImage: "dollarsign.circle");
                     Spacer();
-                    Text("\(String(describing: valueInUSD))");
+                    Text("\(String(describing: usdConversionRate))");
                 }
-                .accessibilityLabel("Current USD");
+                .accessibilityLabel("USD Conversion Rate");
             }
         }
         .padding()
@@ -28,8 +28,8 @@ struct CurrencyDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .task {
             do {
-                let result = try await Network().getLatestRates(currencyCode: currencyType.id);
-                valueInUSD = result.conversion_rates.USD;
+                let result = try await ConversionClient().getConversionRate(originCurrencyCode: currencyType.id, destinationCurrencyCode: "USD");
+                usdConversionRate = result.conversion_rate;
             } catch {
                 print("Error", error)
             }
@@ -42,7 +42,7 @@ struct CurrencyDetailView_Previews: PreviewProvider {
         CurrencyDetailView(
             currencyType: .constant(CurrencyType.data[0]),
             favorites: .constant(FavoritesStore.sampleData),
-            valueInUSD: 1.25
+            usdConversionRate: 0.45
         );
     }
 }
