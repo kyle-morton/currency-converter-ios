@@ -20,6 +20,8 @@
 		884BF00728A20D6200C18DB7 /* ConversionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BF00628A20D6200C18DB7 /* ConversionView.swift */; };
 		88771C8B28A4ADBE00195D58 /* ConversionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88771C8A28A4ADBE00195D58 /* ConversionClient.swift */; };
 		88771C8D28A5F20800195D58 /* ConversionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88771C8C28A5F20800195D58 /* ConversionResponse.swift */; };
+		88771C9028A9DC3F00195D58 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88771C8F28A9DC3F00195D58 /* ErrorView.swift */; };
+		88771C9228A9DC6700195D58 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88771C9128A9DC6700195D58 /* ErrorWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		884BF00628A20D6200C18DB7 /* ConversionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionView.swift; sourceTree = "<group>"; };
 		88771C8A28A4ADBE00195D58 /* ConversionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionClient.swift; sourceTree = "<group>"; };
 		88771C8C28A5F20800195D58 /* ConversionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionResponse.swift; sourceTree = "<group>"; };
+		88771C8F28A9DC3F00195D58 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		88771C9128A9DC6700195D58 /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 				884BEFF628A20BEE00C18DB7 /* Responses */,
 				884BEFF028A2063900C18DB7 /* CurrencyType.swift */,
 				884BEFF228A20AD900C18DB7 /* Conversion.swift */,
+				88771C9128A9DC6700195D58 /* ErrorWrapper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 				884BF00228A20D3B00C18DB7 /* CurrencyListView.swift */,
 				884BF00428A20D4E00C18DB7 /* CurrencyDetailView.swift */,
 				884BF00628A20D6200C18DB7 /* ConversionView.swift */,
+				88771C8F28A9DC3F00195D58 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88771C9228A9DC6700195D58 /* ErrorWrapper.swift in Sources */,
 				88771C8B28A4ADBE00195D58 /* ConversionClient.swift in Sources */,
 				884BEFF828A20C0300C18DB7 /* LatestRatesResponse.swift in Sources */,
 				884BF00128A20C9000C18DB7 /* FavoriteStore.swift in Sources */,
@@ -211,6 +218,7 @@
 				884BF00328A20D3B00C18DB7 /* CurrencyListView.swift in Sources */,
 				884BEFF328A20AD900C18DB7 /* Conversion.swift in Sources */,
 				884BF00728A20D6200C18DB7 /* ConversionView.swift in Sources */,
+				88771C9028A9DC3F00195D58 /* ErrorView.swift in Sources */,
 				884BEFF128A2063900C18DB7 /* CurrencyType.swift in Sources */,
 				884BEFE128A2061200C18DB7 /* CurrencyConverterApp.swift in Sources */,
 				884BEFFB28A20C4B00C18DB7 /* ConversionStore.swift in Sources */,

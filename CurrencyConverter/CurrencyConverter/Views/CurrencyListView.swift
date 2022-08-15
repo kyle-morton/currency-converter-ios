@@ -11,6 +11,7 @@ struct CurrencyListView: View {
     
     @Binding var favorites: [String];
     @Binding var conversions: [Conversion];
+    let saveAction: ()->Void;
     
     func isFavorite(id: String) -> Bool {
         return favorites.contains(id);
@@ -22,6 +23,8 @@ struct CurrencyListView: View {
         } else {
             favorites.append(id);
         }
+        
+        saveAction();
     }
         
     var body: some View {
@@ -55,7 +58,8 @@ struct CurrencyListView_Previews: PreviewProvider {
     static var previews: some View {
         CurrencyListView(
             favorites: .constant(["AED"]),
-            conversions: .constant([])
+            conversions: .constant([]),
+            saveAction: {}
         )
     }
 }
